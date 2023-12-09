@@ -9,5 +9,5 @@ export default {
 </script>
 
 <template>
-  <Easel />
+  <HomePage/>
 </template>
