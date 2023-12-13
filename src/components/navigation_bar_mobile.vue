@@ -1,51 +1,21 @@
 <template>
-	<meta name="viewport" content="width=device-width, initial_scale=1.0">
-	<nav class="navigation">
+<nav class="navigation">
 		<div class="logo-items">
 			<img class="logo" src="/src/assets/logo_75px.png" alt="logo" />
 			<h1 class="headname">LOGO TEXT</h1>
 		</div>
 		<div class="nav-links">
-			<button class="button-50" role="button">Try it Free</button>
-			<a ref="navhome" class="navitems" href="#top">Home</a>
-			<a ref="navproducts" class="navitems" href="#products-hook">Products</a>
-			<a ref="navabout" class="navitems" href="#about-hook">About</a>
-			<button @click="showLoginPopup" class="navitems" id="login-nav">Log in</button>
+            <button class="button-50" role="button">Try it Free</button>
+            <div id="mobile-box">
+                <div id="mobile-box-center">
+                    <div class="mobile-bars"></div>
+                    <div class="mobile-bars"></div>
+                    <div class="mobile-bars"></div>
+                </div>
+		    </div>
 		</div>
 	</nav>
-    <LoginPopup :is-visible="isLoginPopupVisible" @close="hideLoginPopup" />
 </template>
-
-<script>
-
-import LoginPopup from './LoginPopup.vue';
-
-export default {
-
-	components: {
-		LoginPopup,
-	},
-
-	data() {
-
-		return {
-			isLoginPopupVisible: false,
-		};
-
-	},
-	
-	methods: {
-		showLoginPopup() {
-			this.isLoginPopupVisible = true;
-		},
-
-		hideLoginPopup() {
-      		this.isLoginPopupVisible = false;
-    	},
-	}
-};
-
-</script>
 
 <style>
 
@@ -81,6 +51,14 @@ export default {
 	display: flex;
 	min-width: 20%;
 	background-color: black;
+}
+
+.nav-links {
+	height: 60px;
+	display: flex;
+	width: 60%;
+	align-items: center;
+	text-align: center;
 }
 
 .button-50 {
@@ -128,6 +106,39 @@ export default {
 	transform: translate(2px, 2px);
 }
 
+#mobile-box {
+    height: 100%;
+    width: 22%;
+    float: inline-end;
+}
+
+#mobile-box-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+    width: 100%;
+    position: relative;
+    top: 15%;
+}
+
+.mobile-bars {
+	width: 70%;
+    margin: auto;
+    
+	border-right: 0px solid transparent; 
+	border-left: 0px solid transparent; 
+
+    border-top: 3px solid rgba(132, 132, 132, 0.9);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 2px 2px 4px 2px rgba(0,0,0,.2);
+
+    position: relative;
+
+	align-items: center;
+
+}
+
 @media (max-width: 768px) {
 	.button-50 {
 		padding: 12px 2px;
@@ -135,39 +146,11 @@ export default {
   }
 }
 
-@keyframes fadeIn {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
-}
-
-.nav-links {
-	height: 60px;
-	display: flex;
-	width: 60%;
-	align-items: center;
-	text-align: center;
-	justify-content: space-evenly;
-}
-
-.navitems {
-	text-decoration: none;
-	min-height: auto;
-	text-align: center;
-	font-size: 17px;
-	font-family: 'DM Sans';
-	color: rgb(255, 255, 255);
-}
-
-#login-nav {
-	background-color: rgba(0, 0, 0, 0);
-	font-size: 22px;
-	color: rgb(255, 255, 255);
-	border: none;
-	cursor: pointer;
-}
-
-.navitems.bold {
-	font-weight: bold;
+@media (max-width: 768px) {
+	.headname {
+		font-size: 1em;
+		
+  }
 }
 
 </style>
