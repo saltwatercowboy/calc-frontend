@@ -495,7 +495,7 @@ main {
     width: 50%;
     min-width: 50%;
     height: 100%;
-    max-height: 150%;
+    max-height: fit-content;
     box-shadow: 2px 0px 10px rgba(0,0,0,.2);
     justify-content: center;
     align-items: center;
