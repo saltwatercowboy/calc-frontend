@@ -631,7 +631,7 @@ main {
 
     #intro-catch-line {
         position: relative;
-        font-size: 50px;
+        font-size: 40px;
         text-align: center;
         margin: 0 auto;
         float: none;
