@@ -11,8 +11,8 @@
         <section id="intro">
                 <div id="intro-mid-section">
                     <a id="intro-linker" href="#products-hook"></a>
-                    <p id="intro-catch-line">&hairsp;Track&hairsp;&hairsp;and&hairsp;&hairsp;tackle&hairsp;</p>
-                    <p id="intro-catch-line">&hairsp;your&hairsp;&hairsp;emissions&hairsp;&hairsp;</p>
+                    <p id="intro-catch-line">&hairsp;&hairsp;Track&hairsp;&hairsp;&hairsp;and&hairsp;&hairsp;&hairsp;tackle&hairsp;&hairsp;</p>
+                    <p id="intro-catch-line">&hairsp;your&hairsp;&hairsp;&hairsp;emissions&hairsp;&hairsp;</p>
                     <p id="intro-text">Lorum ipsum consectetur adipiscing elit, sed do eiusmod ut al labore et dolore magna aliqua. Ut enim ad minim veniam e inexpiabili odio delendam esse Carthaginem pronuntiba.</p>
                     <div id="triangle-container">
                         <div id="triangle-barrier-down"></div>
@@ -674,7 +674,7 @@ main {
         position: relative;
         margin: 0 auto;
         width: 87%;
-        left: 12.5%;
+        left: 12%;
     }
 
     #intro-linker {
