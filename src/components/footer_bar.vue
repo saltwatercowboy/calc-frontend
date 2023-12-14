@@ -18,16 +18,19 @@
 .footer-bar{
     display: flex;
     background-color: rgb(22, 100, 7);
-    height: 60px;
+    height: 80px;
+    max-height: fit;
     width: 100vw;
     position: relative;
     left: 0%;
     bottom: 0%;
-    align-items: center;
+    align-items: start;
     z-index: 1;
     justify-content: space-between;
 	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
     border-top: 1px solid rgb( 0, 0, 0, 1);
+    padding-bottom: 5%;
+    padding-top: 1%;
 }
 
 .contact-items{

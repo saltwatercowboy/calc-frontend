@@ -53,7 +53,7 @@
             <div id="about-block-l">
                 <a id="about-hook" href="about-hook"></a>
                 <div id="about-content">
-                    <p id="products-head">A WhatsThe&shy;PayBack Company</p>
+                    <p id="products-head">A WhatsThePayBack<wbr> Company</p>
                     <div id="products-triangles-container"></div>
                     <div id="about-triangle-barrier-down"></div>
                     <p id="products-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
@@ -674,7 +674,7 @@ main {
         position: relative;
         margin: 0 auto;
         width: 87%;
-        left: 12%;
+        left: 12.5%;
     }
 
     #intro-linker {
