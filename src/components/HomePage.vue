@@ -584,7 +584,7 @@ main {
     padding-left: 5%;
     padding-right: 5%;
     margin: auto;
-    z-index: 5;
+    z-index: 3;
     cursor: pointer;
 }
 

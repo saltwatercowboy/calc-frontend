@@ -2,7 +2,6 @@
   "name": "calc",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://saltwatercowboy.github.io/calc-frontend/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
