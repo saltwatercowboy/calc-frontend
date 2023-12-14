@@ -87,6 +87,8 @@ import footer_bar from './footer_bar.vue'
 
 export default {
 
+    name: 'HomePage',
+
     components: {
         navigation_bar,
         navigation_bar_mobile,
