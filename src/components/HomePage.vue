@@ -162,7 +162,7 @@ main {
     bottom: 8%;
 }
 
-#intro-mid-section:hover {
+#intro-mid-section {
     #triangle-down {border-top-color: rgba(255, 255, 255); animation-duration: 0s;};
     #triangle-barrier-down {border-top-color: #ffffff; animation-duration: 0s;};
     #triangle-barrier-down-1 {animation-name: triangle-down-animation; animation-duration: 2s; animation-iteration-count: 100; animation-direction: reverse;};
@@ -221,6 +221,7 @@ main {
 
 #intro {
     position: relative;
+    display: block;
     padding: 5em 1em;
     width: 100vw;
     height: 100vh;
@@ -622,50 +623,52 @@ main {
 @media screen and (max-width: 688px) {
 
     #intro-mid-section {
-        width: 75%;
-        left: 12%;
-        padding-left: 0%;
+        display: inline;
+        width: 100%;
         position: absolute;
-        float: center;
+        margin: 0 auto;
+        right: 5%;
     }
 
     #intro-catch-line {
         position: relative;
-        font-size: 40px;
+        font-size: 44px;
         text-align: center;
         margin: 0 auto;
         float: none;
-        width: 90%;
+        width: fit-content;
     }
 
     #intro-text {
         padding-top: 3%;
         padding-bottom: 3%;
-        width: 50%;
-        text-align: center;
+        width: 80%;
         font-size: 20px;
+        text-align: justify;
         float: center;
+        margin: 0 auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
     }
 
     #triangle-barrier-down {
-        width: 100%;
+        width: 90%;
     	border-right: 5px solid transparent; 
-        float: center;
-        left: 0%;
+        position: absolute;
+        margin: 0 auto;
+        left: auto;
+        right: auto;
     }
     
     #triangle-down {
-        position: relative;
-        left: auto;
-        right: auto;
-        margin: auto;
-        vertical-align: middle;
+        opacity: 0%;
     }
 
     #triangle-down-lrg-container {
         position: relative;
-        left: 15%;
-
+        margin: 0 auto;
+        width: 100%;
+        left: 45%;
     }
 
     #intro-linker {
@@ -673,12 +676,6 @@ main {
         height: 100%;
     }
     
-}
-
-@media screen and (max-width: 688px) {
-    #intro-text {
-        width: 100%;
-    }
 }
 
 @media screen and (min-width: 1536px) {
