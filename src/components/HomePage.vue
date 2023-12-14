@@ -11,8 +11,8 @@
         <section id="intro">
                 <div id="intro-mid-section">
                     <a id="intro-linker" href="#products-hook"></a>
-                    <p id="intro-catch-line">Track and tackle</p>
-                    <p id="intro-catch-line">&nbsp;your emissions</p>
+                    <p id="intro-catch-line">&#8198;Track&hairsp;&hairsp;and&hairsp;&hairsp;tackle&hairsp;</p>
+                    <p id="intro-catch-line">&hairsp;your&hairsp;&hairsp;emissions&hairsp;&hairsp;</p>
                     <p id="intro-text">Lorum ipsum consectetur adipiscing elit, sed do eiusmod ut al labore et dolore magna aliqua. Ut enim ad minim veniam e inexpiabili odio delendam esse Carthaginem pronuntiba.</p>
                     <div id="triangle-container">
                         <div id="triangle-barrier-down"></div>
@@ -84,6 +84,7 @@
 import navigation_bar from './navigation_bar.vue'
 import navigation_bar_mobile from './navigation_bar_mobile.vue'
 import footer_bar from './footer_bar.vue'
+import { viewDepthKey } from 'vue-router';
 
 export default {
 
@@ -141,6 +142,7 @@ main {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100vw;
 }
 
 #intro-linker {
@@ -154,21 +156,21 @@ main {
 
 #products-hook {
     position: absolute;
-    bottom: 2%;
+    top: 100%;
 }
 
 #about-hook {
-    position: relative;
-    bottom: 8%;
+    position: absolute;
+    top: -11%;
 }
 
-#intro-mid-section {
+#intro-mid-section:hover {
     #triangle-down {border-top-color: rgba(255, 255, 255); animation-duration: 0s;};
     #triangle-barrier-down {border-top-color: #ffffff; animation-duration: 0s;};
-    #triangle-barrier-down-1 {animation-name: triangle-down-animation; animation-duration: 2s; animation-iteration-count: 100; animation-direction: reverse;};
-    #triangle-barrier-down-2 {animation-name: triangle-down-animation; animation-duration: 2s; animation-iteration-count: 100; animation-direction: reverse;};
-    #triangle-barrier-down-3 {animation-name: triangle-down-animation; animation-duration: 2s; animation-iteration-count: 100; animation-direction: reverse;};
-    #triangle-down-lrg-container {animation-name: triangles-move-animation; animation-duration: 2s; animation-iteration-count: 100;};
+    #triangle-barrier-down-1 {animation-name: triangle-down-animation; animation-duration: 3s; animation-iteration-count: 100; animation-direction: reverse;};
+    #triangle-barrier-down-2 {animation-name: triangle-down-animation; animation-duration: 3s; animation-iteration-count: 100; animation-direction: reverse;};
+    #triangle-barrier-down-3 {animation-name: triangle-down-animation; animation-duration: 3s; animation-iteration-count: 100; animation-direction: reverse;};
+    #triangle-down-lrg-container {animation-name: triangles-move-animation; animation-duration: 3s; animation-iteration-count: 100;};
 
 }
 
@@ -212,7 +214,7 @@ main {
     position: absolute;
     background: url('/src/assets/intro-back.jpg') no-repeat center center, rgb(0, 0, 0, .35);
     background-size: cover;
-    padding: 5em 1em;
+    padding: 5em;
     width: 100vw;
     height: 100vh;
     z-index: 2;
@@ -222,13 +224,12 @@ main {
 #intro {
     position: relative;
     display: block;
-    padding: 5em 1em;
+    padding: 5em;
     width: 100vw;
     height: 100vh;
     background-color: rgb(0, 0, 0, 0.3);
     border-bottom: 7.31px solid rgb(0, 0, 0);
     z-index: 4;
-    overflow: auto;
 }
 
 #intro-mid-section {
@@ -254,6 +255,7 @@ main {
     box-shadow: 2px 2px 4px -2px rgba(0,0,0,.2);
     text-decoration: rgba(201, 211, 120, 1);
     white-space: nowrap;
+    font-kerning: none;
     }
 
 #intro-text {
@@ -285,7 +287,7 @@ main {
     
     position: absolute;
     float: right;
-    left: 46%;
+    left: 49%;
     animation-name: triangle-down-norm-animation;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -393,6 +395,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(232, 239, 235);
+    max-height: fit-content;
+    padding-top: 5%;
 }
 
 #products-block-l {
@@ -488,18 +492,19 @@ main {
 #about-block-l {
     float: left;
     position: relative;
-    overflow: auto;
     background-color: rgb(250, 252, 251);
     width: 50%;
     min-width: 50%;
-    height: 100vh;
-    max-height: 200vh;
+    height: 100%;
+    max-height: 150%;
     box-shadow: 2px 0px 10px rgba(0,0,0,.2);
     justify-content: center;
     align-items: center;
     overflow-wrap: break-word;
     hyphens: manual;
     border-bottom: 5.31px solid rgba(250, 252, 251, 1);
+    overflow: auto;
+    padding-bottom: 5%;
 
 }
 
@@ -523,6 +528,7 @@ main {
     width: 50%;
     min-width: 50%;
     height: 100vh;
+    max-height: 200vh;
     border-bottom: 5.31px solid rgba(232, 239, 235, 1);
 }
 
@@ -627,16 +633,16 @@ main {
         width: 100%;
         position: absolute;
         margin: 0 auto;
-        right: 5%;
+        right: 4.5%;
     }
 
     #intro-catch-line {
-        position: relative;
         font-size: 44px;
         text-align: center;
         margin: 0 auto;
         float: none;
         width: fit-content;
+        
     }
 
     #intro-text {
@@ -652,12 +658,12 @@ main {
     }
 
     #triangle-barrier-down {
-        width: 90%;
+        width: 80%;
     	border-right: 5px solid transparent; 
         position: absolute;
         margin: 0 auto;
-        left: auto;
-        right: auto;
+        left: 15.5%;
+        opacity: 0%;
     }
     
     #triangle-down {
@@ -668,7 +674,7 @@ main {
         position: relative;
         margin: 0 auto;
         width: 100%;
-        left: 45%;
+        left: 13%;
     }
 
     #intro-linker {
@@ -676,6 +682,16 @@ main {
         height: 100%;
     }
     
+    #intro-mid-section {
+        #triangle-down {border-top-color: rgba(255, 255, 255); animation-duration: 0s;};
+        #triangle-barrier-down {border-top-color: #ffffff; animation-duration: 0s;};
+        #triangle-barrier-down-1 {animation-name: triangle-down-animation; animation-duration: 3s; animation-iteration-count: 100; animation-direction: reverse;};
+        #triangle-barrier-down-2 {animation-name: triangle-down-animation; animation-duration: 3s; animation-iteration-count: 100; animation-direction: reverse;};
+        #triangle-barrier-down-3 {animation-name: triangle-down-animation; animation-duration: 3s; animation-iteration-count: 100; animation-direction: reverse;};
+        #triangle-down-lrg-container {animation-name: triangles-move-animation; animation-duration: 3s; animation-iteration-count: 100;};
+
+    }
+
 }
 
 @media screen and (min-width: 1536px) {

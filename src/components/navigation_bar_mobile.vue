@@ -8,9 +8,9 @@
             <button class="button-50" role="button">Try it Free</button>
             <div id="mobile-box">
                 <div id="mobile-box-center">
-                    <div class="mobile-bars"></div>
-                    <div class="mobile-bars"></div>
-                    <div class="mobile-bars"></div>
+                    <div class="mobile-bar-top-bottom"></div>
+                    <div class="mobile-bar-middle"></div>
+                    <div class="mobile-bar-top-bottom"></div>
                 </div>
 		    </div>
 		</div>
@@ -108,7 +108,7 @@
 
 #mobile-box {
     height: 100%;
-    width: 22%;
+    width: 30%;
     float: inline-end;
 }
 
@@ -120,10 +120,28 @@
     width: 100%;
     position: relative;
     top: 15%;
+	padding-left: 15%;
 }
 
-.mobile-bars {
-	width: 70%;
+.mobile-bar-top-bottom {
+	width: 40%;
+    margin: auto;
+    
+	border-right: 0px solid transparent; 
+	border-left: 0px solid transparent; 
+
+    border-top: 3px solid rgba(132, 132, 132, 0.9);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 2px 2px 4px 2px rgba(0,0,0,.2);
+
+    position: relative;
+
+	align-items: center;
+
+}
+
+.mobile-bar-middle {
+	width: 60%;
     margin: auto;
     
 	border-right: 0px solid transparent; 
