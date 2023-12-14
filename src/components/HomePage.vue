@@ -84,7 +84,6 @@
 import navigation_bar from './navigation_bar.vue'
 import navigation_bar_mobile from './navigation_bar_mobile.vue'
 import footer_bar from './footer_bar.vue'
-import { viewDepthKey } from 'vue-router';
 
 export default {
 
@@ -224,7 +223,7 @@ main {
 #intro {
     position: relative;
     display: block;
-    padding: 5em;
+    padding: 5em 1em;
     width: 100vw;
     height: 100vh;
     background-color: rgb(0, 0, 0, 0.3);
@@ -233,13 +232,12 @@ main {
 }
 
 #intro-mid-section {
-    display: inline-block;
     position: relative;
     padding-top: 15%;
     padding-left: 10%;
     margin-top: auto;
     margin-bottom: auto;
-    width: 100%;
+    width: 90%;
     min-width: 63%;
     color:#fff;
     z-index: 6;
@@ -630,15 +628,15 @@ main {
 @media screen and (max-width: 688px) {
 
     #intro-mid-section {
-        display: inline;
-        width: 100%;
-        position: absolute;
+        width: 90%;
+        position: relative;
+        padding-left: 0%;
         margin: 0 auto;
-        right: 4.5%;
+        float: center;
     }
 
     #intro-catch-line {
-        font-size: 52px;
+        font-size: 42px;
         text-align: center;
         margin: 0 auto;
         float: none;
@@ -650,6 +648,7 @@ main {
         padding-top: 3%;
         padding-bottom: 3%;
         width: 80%;
+        min-width: fit-content;
         font-size: 20px;
         text-align: justify;
         float: center;
@@ -674,11 +673,12 @@ main {
     #triangle-down-lrg-container {
         position: relative;
         margin: 0 auto;
-        width: 100%;
-        left: 13%;
+        width: 87%;
+        left: 12%;
     }
 
     #intro-linker {
+        position: relative;
         width: 100%;
         height: 100%;
     }
