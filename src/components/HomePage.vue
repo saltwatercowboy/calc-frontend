@@ -697,4 +697,14 @@ main {
 
 }
 
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/src/assets/fonts/DMSans-VariableFont_opsz,wght.ttf');
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('/src/assets/fonts/Raleway-VariableFont_wght.ttf')
+}
+
 </style>
