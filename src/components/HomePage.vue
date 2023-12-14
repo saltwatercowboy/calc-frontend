@@ -418,7 +418,6 @@ main {
     width: 50%;
     min-width: 50%;
     height: 100vh;
-    max-height: fit-content;
     box-shadow: 2px 0px 10px rgba(0,0,0,.2);
     justify-content: center;
     align-items: center;
@@ -674,7 +673,7 @@ main {
         position: relative;
         margin: 0 auto;
         width: 87%;
-        left: 12%;
+        left: 11.5%;
     }
 
     #intro-linker {
