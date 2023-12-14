@@ -11,7 +11,7 @@
         <section id="intro">
                 <div id="intro-mid-section">
                     <a id="intro-linker" href="#products-hook"></a>
-                    <p id="intro-catch-line">&#8198;Track&hairsp;&hairsp;and&hairsp;&hairsp;tackle&hairsp;</p>
+                    <p id="intro-catch-line">&hairsp;Track&hairsp;&hairsp;and&hairsp;&hairsp;tackle&hairsp;</p>
                     <p id="intro-catch-line">&hairsp;your&hairsp;&hairsp;emissions&hairsp;&hairsp;</p>
                     <p id="intro-text">Lorum ipsum consectetur adipiscing elit, sed do eiusmod ut al labore et dolore magna aliqua. Ut enim ad minim veniam e inexpiabili odio delendam esse Carthaginem pronuntiba.</p>
                     <div id="triangle-container">
@@ -150,7 +150,7 @@ main {
     top: 30%;
     left: 10%;
     width: 45%;
-    height: 50%;
+    height: 90%;
     z-index: 7;
 }
 
@@ -234,11 +234,12 @@ main {
 
 #intro-mid-section {
     display: inline-block;
-    padding-top: 10%;
+    position: relative;
+    padding-top: 15%;
     padding-left: 10%;
     margin-top: auto;
     margin-bottom: auto;
-    width: 49.5%;
+    width: 100%;
     min-width: 63%;
     color:#fff;
     z-index: 6;
@@ -260,9 +261,10 @@ main {
 
 #intro-text {
     font-family: 'DM Sans';
-    font-size: 18px;
+    font-size: 20px;
     text-shadow: 1px 1px rgb(0, 0, 0);
-    width: 80%;
+    width: 50%;
+    min-width: 400px;
     padding-top: 2%;
     padding-bottom: 3%;
     z-index: 5;
@@ -270,9 +272,9 @@ main {
     clear: both;
 }
 
-#triangles-container {
+#triangle-container {
     position: absolute;
-    width: inherit;
+    width: 100%;
     display: flex;
 }
 
@@ -285,9 +287,8 @@ main {
 
 	border-top: 15.31px solid rgba(201, 211, 120, 1);
     
-    position: absolute;
-    float: right;
-    left: 49%;
+    position: relative;
+    float: left;
     animation-name: triangle-down-norm-animation;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -297,7 +298,7 @@ main {
 #triangle-down-lrg-container {
     padding-top: 7.5%;
     height: 100%;
-    width: 100%;
+    width: 60%;
 }
 
 #triangle-down-small {
@@ -323,7 +324,7 @@ main {
 	width: 0;
 	height: 0;
 	
-	border-right: 0px solid transparent; 
+	border-right: 5px solid transparent; 
 	border-left: 5px solid transparent; 
 
     border-top: 7.31px solid rgba(201, 211, 120, 1);
@@ -637,7 +638,7 @@ main {
     }
 
     #intro-catch-line {
-        font-size: 44px;
+        font-size: 52px;
         text-align: center;
         margin: 0 auto;
         float: none;
@@ -706,6 +707,7 @@ main {
 
     #intro-mid-section {
         padding-top: 5%;
+        top: 20%;
     }
 
 }
