@@ -233,7 +233,7 @@ main {
 
 #intro-mid-section {
     position: relative;
-    padding-top: 15%;
+    padding-top: 10%;
     padding-left: 10%;
     margin-top: auto;
     margin-bottom: auto;
