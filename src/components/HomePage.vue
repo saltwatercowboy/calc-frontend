@@ -640,7 +640,6 @@ main {
         margin: 0 auto;
         float: none;
         width: fit-content;
-        
     }
 
     #intro-text {
@@ -677,9 +676,9 @@ main {
     }
 
     #intro-linker {
-        position: relative;
-        width: 100%;
-        height: 100%;
+        position: absolute;
+        width: 70vw;
+        height: 70vh;
     }
     
     #intro-mid-section {
@@ -709,6 +708,53 @@ main {
         top: 20%;
     }
 
+}
+
+@media screen and (orientation: landscape) {
+    #intro {
+        width: 100%;
+        height: 150vh;
+    }
+
+    #intro-grid {
+        width: 100%;
+        height: 150vh;
+    }
+
+    #intro-img {
+        width: 100%;
+        height: 150vh;
+    }
+
+    #intro-mid-section {
+        height: 25vh;
+        max-height: 50vh;
+        max-width: 100%;
+        padding-top: 0%;
+    }
+
+    #intro-catch-line {
+        max-width: 100%;
+        height: fit-content;
+    }
+
+    #intro-text {
+        max-width: 100%;
+    }
+
+    #products-block-l {
+        width: 100%;
+        height: 150vh;
+    }
+
+    #about-block-r {
+        width: 100%;
+        height: 150vh;
+    }
+
+    #action-button {
+        min-height: 90px;
+    }
 }
 
 @font-face {
