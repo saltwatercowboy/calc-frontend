@@ -71,10 +71,11 @@
         </section>
         <section id="action">
             <div id="action-img"></div>
-            <div id="action-button">
+            <button @click="showRegisterPopup" id="action-button">
                 <p id="action-button-text">Sign Up</p>
-            </div>
+            </button>
         </section>
+	    <RegistrationPopUp :is-visible="isRegisterPopupVisible" @close="hideRegisterPopup" />
     </main>
     <footer_bar/>
 </template>
@@ -84,6 +85,7 @@
 import navigation_bar from './navigation_bar.vue'
 import navigation_bar_mobile from './navigation_bar_mobile.vue'
 import footer_bar from './footer_bar.vue'
+import RegistrationPopUp from './RegistrationPopUp.vue';
 
 export default {
 
@@ -93,6 +95,7 @@ export default {
         navigation_bar,
         navigation_bar_mobile,
         footer_bar,
+        RegistrationPopUp,
     },
 
     data() {
@@ -100,13 +103,14 @@ export default {
         return {
             smallBar: 'navigation_bar_mobile',
             largeBar: 'navigation_bar',
-            screenWidth: window.innerWidth
+            screenWidth: window.innerWidth,
+            isRegisterPopupVisible: false,
         };
     },
 
     computed: {
         isScreenSmall() {
-            return this.screenWidth < 768;
+            return this.screenWidth < 688;
         }
     },
 
@@ -121,7 +125,15 @@ export default {
     methods: {
         updateScreenWidth() {
             this.screenWidth = window.innerWidth;
-        }
+        },
+
+        showRegisterPopup() {
+			this.isRegisterPopupVisible = true;
+		},
+
+		hideRegisterPopup() {
+      		this.isRegisterPopupVisible = false;
+    	},
     }
 };
 
@@ -160,7 +172,7 @@ main {
 
 #about-hook {
     position: absolute;
-    top: -11%;
+    top: -6%;
 }
 
 #intro-mid-section:hover {
@@ -288,7 +300,7 @@ main {
     position: relative;
     float: left;
     animation-name: triangle-down-norm-animation;
-    animation-duration: 2s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: reverse;
 }
@@ -332,7 +344,7 @@ main {
     float: right;
 
     animation-name: triangle-norm-animation;
-    animation-duration: 2s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: reverse;
 }
@@ -591,6 +603,8 @@ main {
     margin: auto;
     z-index: 3;
     cursor: pointer;
+	-webkit-animation: scale-up-center 4s cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite alternate-reverse both;
+	animation: scale-up-center 4s cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite alternate-reverse both;
 }
 
 #action-button-text {
@@ -603,6 +617,27 @@ main {
     color: rgb(255, 255, 255);
     height: 100%;
     width: 100%;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 912px) {
@@ -711,6 +746,12 @@ main {
 }
 
 @media screen and (orientation: landscape) and (max-width: 688px) {
+
+    #products-hook {
+        position: absolute;
+        top: 90%;
+    }
+
     #intro {
         width: 100%;
         height: 150vh;

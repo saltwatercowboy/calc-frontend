@@ -5,7 +5,7 @@
 			<h1 class="headname">LOGO TEXT</h1>
 		</div>
 		<div class="nav-links">
-            <button class="button-50" role="button">Try it Free</button>
+            <button @click="showRegisterPopup" class="button-50" role="button">Try it Free</button>
             <div id="mobile-box">
                 <button @click="showLoginPopup" id="mobile-box-center">
                     <div class="mobile-bar-top-bottom"></div>
@@ -16,33 +16,46 @@
 		</div>
 	</nav>
 	<LoginPopup :is-visible="isLoginPopupVisible" @close="hideLoginPopup" />
+	<RegistrationPopUp :is-visible="isRegisterPopupVisible" @close="hideRegisterPopup" />
 </template>
 
 <script>
 
 import LoginPopup from './LoginPopup.vue';
+import RegistrationPopUp from './RegistrationPopUp.vue';
 
 export default {
 
 	components: {
 		LoginPopup,
+		RegistrationPopUp,
 	},
 
 	data() {
 
 		return {
 			isLoginPopupVisible: false,
+			isRegisterPopupVisible: false,
 		};
 
 	},
 	
 	methods: {
+
 		showLoginPopup() {
 			this.isLoginPopupVisible = true;
 		},
 
 		hideLoginPopup() {
       		this.isLoginPopupVisible = false;
+    	},
+		
+		showRegisterPopup() {
+			this.isRegisterPopupVisible = true;
+		},
+
+		hideRegisterPopup() {
+      		this.isRegisterPopupVisible = false;
     	},
 	}
 };
@@ -54,7 +67,7 @@ export default {
 .navigation {
 	display: flex;
 	position: fixed;
-	min-height: auto;
+	min-height: 68px;
 	top: 0;
 	left: 0;
 	justify-content: space-between;
@@ -79,14 +92,14 @@ export default {
 }
 
 .logo-items {
-	height: auto;
+	height: 50px;
 	display: flex;
 	min-width: 20%;
 	background-color: black;
 }
 
 .nav-links {
-	height: 60px;
+	height: 40px;
 	display: flex;
 	width: 60%;
 	align-items: center;
@@ -107,8 +120,8 @@ export default {
 	font-family: 'DM Sans';
 	font-size: 17px;
 	font-weight: 400;
-	line-height: 20px;
-	margin: 0 5px 10px 0;
+	line-height: 10px;
+	margin: 2px 5px 10px 2px;
 	overflow: visible;
 	padding: 12px 40px;
 	text-align: center;

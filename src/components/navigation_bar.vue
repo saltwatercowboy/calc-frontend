@@ -6,7 +6,7 @@
 			<h1 class="headname">LOGO TEXT</h1>
 		</div>
 		<div class="nav-links">
-			<button class="button-50" role="button">Try it Free</button>
+			<button @click="showRegisterPopup" class="button-50" role="button">Try it Free</button>
 			<a ref="navhome" class="navitems" href="#top">Home</a>
 			<a ref="navproducts" class="navitems" href="#products-hook">Products</a>
 			<a ref="navabout" class="navitems" href="#about-hook">About</a>
@@ -14,33 +14,46 @@
 		</div>
 	</nav>
     <LoginPopup :is-visible="isLoginPopupVisible" @close="hideLoginPopup" />
+	<RegistrationPopUp :is-visible="isRegisterPopupVisible" @close="hideRegisterPopup" />
 </template>
 
 <script>
 
 import LoginPopup from './LoginPopup.vue';
+import RegistrationPopUp from './RegistrationPopUp.vue';
 
 export default {
 
 	components: {
 		LoginPopup,
+		RegistrationPopUp,
 	},
 
 	data() {
 
 		return {
 			isLoginPopupVisible: false,
+			isRegisterPopupVisible: false,
 		};
 
 	},
 	
 	methods: {
+
 		showLoginPopup() {
 			this.isLoginPopupVisible = true;
 		},
 
 		hideLoginPopup() {
       		this.isLoginPopupVisible = false;
+    	},
+
+		showRegisterPopup() {
+			this.isRegisterPopupVisible = true;
+		},
+
+		hideRegisterPopup() {
+      		this.isRegisterPopupVisible = false;
     	},
 	}
 };
@@ -52,7 +65,7 @@ export default {
 .navigation {
 	display: flex;
 	position: fixed;
-	min-height: auto;
+	min-height: 60px;
 	top: 0;
 	left: 0;
 	justify-content: space-between;
@@ -141,7 +154,7 @@ export default {
 }
 
 .nav-links {
-	height: 60px;
+	height: auto	;
 	display: flex;
 	width: 60%;
 	align-items: center;
