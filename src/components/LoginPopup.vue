@@ -201,4 +201,16 @@ export default {
 	100% { opacity: 1; }
 }
 
+@media screen and (max-width: 786px) {
+	.popup-overlay {
+		width: 100vw;
+	}
+
+	.close-login {
+		top: 5%;
+		right: 5%;
+		z-index: 7;
+	}
+}
+
 </style>

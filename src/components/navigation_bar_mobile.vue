@@ -7,15 +7,47 @@
 		<div class="nav-links">
             <button class="button-50" role="button">Try it Free</button>
             <div id="mobile-box">
-                <div id="mobile-box-center">
+                <button @click="showLoginPopup" id="mobile-box-center">
                     <div class="mobile-bar-top-bottom"></div>
                     <div class="mobile-bar-middle"></div>
                     <div class="mobile-bar-top-bottom"></div>
-                </div>
+				</button>
 		    </div>
 		</div>
 	</nav>
+	<LoginPopup :is-visible="isLoginPopupVisible" @close="hideLoginPopup" />
 </template>
+
+<script>
+
+import LoginPopup from './LoginPopup.vue';
+
+export default {
+
+	components: {
+		LoginPopup,
+	},
+
+	data() {
+
+		return {
+			isLoginPopupVisible: false,
+		};
+
+	},
+	
+	methods: {
+		showLoginPopup() {
+			this.isLoginPopupVisible = true;
+		},
+
+		hideLoginPopup() {
+      		this.isLoginPopupVisible = false;
+    	},
+	}
+};
+
+</script>
 
 <style>
 
@@ -110,6 +142,9 @@
     height: 100%;
     width: 30%;
     float: inline-end;
+	background-color: rgba(0, 0, 0, 0);
+	color: rgba(0, 0, 0, 0);
+	border: none;
 }
 
 #mobile-box-center {
@@ -121,6 +156,9 @@
     position: relative;
     top: 15%;
 	padding-left: 15%;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+
 }
 
 .mobile-bar-top-bottom {

@@ -710,7 +710,7 @@ main {
 
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 688px) {
     #intro {
         width: 100%;
         height: 150vh;
