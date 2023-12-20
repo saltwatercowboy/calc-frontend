@@ -1,16 +1,16 @@
 <template>
-<nav class="navigation">
-		<div class="logo-items">
-			<img class="logo" src="/src/assets/logo_75px.png" alt="logo" />
-			<h1 class="headname">LOGO TEXT</h1>
+<nav class="navigation-mobile">
+		<div class="logo-items-mobile">
+			<img class="logo-mobile" src="/src/assets/logo_75px.png" alt="logo" />
+			<h1 class="headname-mobile">LOGO TEXT</h1>
 		</div>
-		<div class="nav-links">
-            <button @click="showRegisterPopup" class="button-50" role="button">Try it Free</button>
-            <div id="mobile-box">
-                <button @click="showLoginPopup" id="mobile-box-center">
-                    <div class="mobile-bar-top-bottom"></div>
-                    <div class="mobile-bar-middle"></div>
-                    <div class="mobile-bar-top-bottom"></div>
+		<div class="nav-links-mobile">
+            <button @click="showRegisterPopup" class="button-50-mobile" role="button">Try it Free</button>
+            <div id="mobile-box-mobile">
+                <button @click="showLoginPopup" id="mobile-box-center-mobile">
+                    <div class="mobile-bar-top-bottom-mobile"></div>
+                    <div class="mobile-bar-middle-mobile"></div>
+                    <div class="mobile-bar-top-bottom-mobile"></div>
 				</button>
 		    </div>
 		</div>
@@ -64,7 +64,7 @@ export default {
 
 <style>
 
-.navigation {
+.navigation-mobile {
 	display: flex;
 	position: fixed;
 	min-height: 68px;
@@ -79,26 +79,26 @@ export default {
 	white-space: nowrap;
 }
 
-.logo {
+.logo-mobile {
 	float: left;
 	height: 100%;
 }
 
-.headname {
+.headname-mobile {
 	margin: auto;
 	font-size: 25px;
 	font-family: 'DM Sans';
 	color: rgb(255, 255, 255)
 }
 
-.logo-items {
+.logo-items-mobile {
 	height: 50px;
 	display: flex;
 	min-width: 20%;
 	background-color: black;
 }
 
-.nav-links {
+.nav-links-mobile {
 	height: 40px;
 	display: flex;
 	width: 60%;
@@ -106,7 +106,7 @@ export default {
 	text-align: center;
 }
 
-.button-50 {
+.button-50-mobile {
 	appearance: button;
 	background-color: rgba(49, 126, 34, 1);
 	background-image: none;
@@ -133,34 +133,35 @@ export default {
 	white-space: nowrap;
 }
 
-.button-50:focus {
+.button-50-mobile:focus {
 	text-decoration: none;
 }
 
-.button-50:hover {
+.button-50-mobile:hover {
 	text-decoration: none;
 }
 
-.button-50:active {
+.button-50-mobile:active {
 	box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
 	outline: 0;
 }
 
-.button-50:not([disabled]):active {
+.button-50-mobile:not([disabled]):active {
 	box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
 	transform: translate(2px, 2px);
 }
 
-#mobile-box {
+#mobile-box-mobile {
     height: 100%;
     width: 30%;
     float: inline-end;
 	background-color: rgba(0, 0, 0, 0);
 	color: rgba(0, 0, 0, 0);
 	border: none;
+	cursor: pointer;
 }
 
-#mobile-box-center {
+#mobile-box-center-mobile {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -171,10 +172,11 @@ export default {
 	padding-left: 15%;
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
+	cursor: pointer;
 
 }
 
-.mobile-bar-top-bottom {
+.mobile-bar-top-bottom-mobile {
 	width: 40%;
     margin: auto;
     
@@ -191,7 +193,7 @@ export default {
 
 }
 
-.mobile-bar-middle {
+.mobile-bar-middle-mobile {
 	width: 60%;
     margin: auto;
     
@@ -209,14 +211,14 @@ export default {
 }
 
 @media (max-width: 768px) {
-	.button-50 {
+	.button-50-mobile {
 		padding: 12px 2px;
 		
   }
 }
 
 @media (max-width: 768px) {
-	.headname {
+	.headname-mobile {
 		font-size: 1em;
 		
   }

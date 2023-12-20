@@ -1,5 +1,5 @@
 <template>
-    <meta name="viewport" content="width=device-width, initial_scale=1.0">
+    <meta name="viewport" content="width=device-width" initial_scale="1.0">
     <main>
         <a id="hook" href="top"></a>
         <header>
