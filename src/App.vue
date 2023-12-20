@@ -1,43 +1,23 @@
-<script setup>
-import { ref, computed } from 'vue'
-import HomePage from "./components/HomePage.vue";
-import DashHome from "./components/DashHome.vue";
-
-const routes = {
-  '/': HomePage,
-  '/dashboard': DashHome
-}
-
-const currentPath = ref(window.location.hash)
-
-window.addEventListener('hashchange', () => {
-  currentPath.value = window.location.hash
-})
-
-const currentView = computed(() => {
-  return routes[currentPath.value.slice(1) || '/'] || NotFound
-})
-
-</script>
-
 <template>
   <div id="app">
-    <component :is="currentView" />
+    <router-view />
     <div id="linker">
-      <a id="linker" href="#/dashboard">Go to Dashboard</a>
+      <!-- Use router-link for navigation -->
+      <button @click="goToDashboard">Go to Dashboard</button>
     </div>
   </div>
 </template>
 
 <script>
-
- 
 export default {
   name: 'App',
-  components: {
-    HomePage,
-    DashHome
-  }
+
+  methods: {
+    goToDashboard() {
+      // Use Vue Router's programmatic navigation
+      this.$router.push('/dashboard');
+    },
+  },
 };
 </script>
 

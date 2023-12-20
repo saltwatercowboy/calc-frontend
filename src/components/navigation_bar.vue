@@ -7,9 +7,9 @@
 		</div>
 		<div class="nav-links">
 			<button @click="showRegisterPopup" class="button-50" role="button">Try it Free</button>
-			<a ref="navhome" class="navitems" href="#top">Home</a>
-			<a ref="navproducts" class="navitems" href="#products-hook">Products</a>
-			<a ref="navabout" class="navitems" href="#about-hook">About</a>
+			<a ref="navhome" class="navitems" href="#top" @click.prevent="scrollToSection('hook')">Home</a>
+			<a ref="navproducts" class="navitems" href="#products-hook" @click.prevent="scrollToSection('products-hook')">Products</a>
+			<a ref="navabout" class="navitems" href="#about-hook" @click.prevent="scrollToSection('about-hook')">About</a>
 			<button @click="showLoginPopup" class="navitems" id="login-nav">Log in</button>
 		</div>
 	</nav>
@@ -55,6 +55,16 @@ export default {
 		hideRegisterPopup() {
       		this.isRegisterPopupVisible = false;
     	},
+
+		scrollToSection(sectionId) {
+			const section = document.getElementById(sectionId);
+			if (section) {
+				section.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				});
+			}
+		},
 	}
 };
 

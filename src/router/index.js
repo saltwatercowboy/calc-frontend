@@ -1,21 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../components/HomePage.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import HomePage from '../components/HomePage.vue';
+import DashHome from '../components/DashHome.vue';
+
+const routes = [
+  {
+    path: '/',
+    component: HomePage,
+  },
+  {
+    path: '/dashboard',
+    component: DashHome,
+  },
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomePage
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
+  history: createWebHashHistory(),
+  routes,
+});
 
-      component: () => import('../components/DashHome.vue')
-    }
-  ]
-})
-
-export default router
+export default router;

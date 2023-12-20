@@ -155,7 +155,7 @@ export default {
 
 #reg-button {
 	position: relative;
-    left: 30%;
+    left: 75%;
 	font-family: 'Raleway';
 	font-size: 24px;
     margin: 0 auto;

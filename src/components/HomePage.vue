@@ -1,7 +1,7 @@
 <template>
     <meta name="viewport" content="width=device-width" initial_scale="1.0">
     <main>
-        <a id="hook" href="top"></a>
+        <a id="hook" href="#top"></a>
         <header>
             <component v-if="isScreenSmall" :is="smallBar"></component>
             <component v-else :is="largeBar"></component>
@@ -10,7 +10,7 @@
         <section id="intro-img"></section>
         <section id="intro">
                 <div id="intro-mid-section">
-                    <a id="intro-linker" href="#products-hook"></a>
+                    <a id="intro-linker" href="#products-hook" @click.prevent="scrollToSection('products-hook')"></a>
                     <p id="intro-catch-line">&hairsp;&hairsp;Track and tackle&hairsp;&hairsp;</p>
                     <p id="intro-catch-line">&hairsp;&hairsp;your emissions&hairsp;&hairsp;</p>
                     <p id="intro-text">Lorum ipsum consectetur adipiscing elit, sed do eiusmod ut al labore et dolore magna aliqua. Ut enim ad minim veniam e inexpiabili odio delendam esse Carthaginem pronuntiba.</p>
@@ -28,7 +28,6 @@
         <section id="products">
             <a id="products-hook"></a>
             <div id="products-block-l">
-                <a id="hook"></a>
                 <div id="products-content">
                     <p id="products-head">A Bespoke Emissions Dashboard</p>
                     <div id="products-triangles-container"></div>
@@ -134,6 +133,16 @@ export default {
 		hideRegisterPopup() {
       		this.isRegisterPopupVisible = false;
     	},
+
+        scrollToSection(sectionId) {
+			const section = document.getElementById(sectionId);
+			if (section) {
+				section.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				});
+			}
+		},
     }
 };
 
@@ -505,7 +514,7 @@ main {
     background-color: rgb(250, 252, 251);
     width: 50%;
     min-width: 50%;
-    height: 100%;
+    height: 90vh;
     min-height: 100%;
     box-shadow: 2px 0px 10px rgba(0,0,0,.2);
     justify-content: center;
@@ -741,6 +750,18 @@ main {
     #intro-mid-section {
         padding-top: 5%;
         top: 20%;
+    }
+
+    #action-button-text {
+        position: relative;
+        top: 15%;
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'DM Sans';
+        font-size: 62px;
+        color: rgb(255, 255, 255);
+        height: 100%;
+        width: 100%;
     }
 
 }
