@@ -121,7 +121,7 @@ export default {
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 10px;
-	margin: 2px 5px 10px 2px;
+	margin: 2px 5px 10px 40px;
 	overflow: visible;
 	padding: 12px 40px;
 	text-align: center;
@@ -152,6 +152,7 @@ export default {
 }
 
 #mobile-box-mobile {
+	position: relative;
     height: 100%;
     width: 30%;
     float: inline-end;
@@ -159,6 +160,7 @@ export default {
 	color: rgba(0, 0, 0, 0);
 	border: none;
 	cursor: pointer;
+	left: 10%;
 }
 
 #mobile-box-center-mobile {
