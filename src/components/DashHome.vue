@@ -1,12 +1,15 @@
 <template>
     <meta name="viewport" content="width=device-width">
-    <DashNavigator/>
     <main>
+        <component v-if="isScreenSmall" :is="smallBar"></component>
+        <component v-else :is="largeBar"></component>    
         <div class="fullback">
             <div class="treemap-card">
                 <span class="treemap-label">{{ treeName }}
                 </span>
-                <TreeMap :type="treemap" :data="treemapData" />
+                <div id="treemap-container">
+                    <TreeMap :type="treemap" :data="treemapData" />
+                </div>
             </div>
             <div class="summary-card">
                 <span class="summary-label">Emissions Summary
@@ -60,6 +63,7 @@ import DropDownType from './DropDownType.vue'
 import DropDownScope from './DropDownScope.vue'
 import DropDownYear from './DropDownYear.vue'
 import DropDownUnit from './DropDownUnit.vue'
+import SummaryPopUp from './SummaryPopUp.vue'
 
 export default {
 
@@ -67,19 +71,27 @@ export default {
 
     components: {
         DashNavigator,
+        DashNavigatorMobile,
         TreeMap,
         Chart,
         DropDownType,
         DropDownScope,
         DropDownYear,
         DropDownUnit,
+        SummaryPopUp
     },
+
+    props: ['datasetSummaries'],
 
     data() {
 
         return {
+
             smallBar: 'DashNavigatorMobile',
             largeBar: 'DashNavigator',
+
+            isSummaryPopupVisible: false,
+
             screenWidth: window.innerWidth,
 
             lineName: ' Emissions: ',
@@ -227,7 +239,7 @@ export default {
             return this.screenWidth < 688;
         },
 
-        datasetSummaries() {
+        datasetSummaries: function() {
             this.updateFilteredData()
             return this.filteredLineData.datasets.map(dataset => {
                 const sum = dataset.data.reduce((acc, currentValue) => acc + currentValue, 0);
@@ -237,8 +249,7 @@ export default {
                         year: dataset.year
                     };
             });
-        }
-
+        },
     },
 
     mounted() {
@@ -261,6 +272,15 @@ export default {
     },
 
     methods: {
+
+        showSummaryPopup() {
+			this.isSummaryPopupVisible = true;
+		},
+
+		hideSummaryPopup() {
+      		this.isSummaryPopupVisible = false;
+    	},
+
         updateScreenWidth() {
             this.screenWidth = window.innerWidth;
         },
@@ -354,7 +374,6 @@ main {
 	border-left: 3px solid transparent; 
 
     border-top: 5.31px solid rgb(86, 130, 89);
-;
     position: absolute;
     padding-right: 97%;
     float: right;
@@ -383,7 +402,6 @@ main {
     width: 100vw;
     height: 94vh;
     background-color: rgba(0, 0, 0);
-    
 }
 
 .summary-card {
@@ -455,12 +473,17 @@ main {
     font-family: 'DM Sans';
 }
 
+.treemap-container {
+    height: 100%;
+    width: 100%;
+}
+
 .treemap-label {
     display: block;
     position: relative;
     width: fit-content;
+    left: 0.5%;
     top: 2%;
-    left: 4%;
     font-family: 'DM Sans';
     color: rgb(255, 255, 255);
     font-weight: 500;
@@ -511,8 +534,8 @@ main {
 
 .line-label {
     position: relative;
+    left: 0.5%;
     top: 2%;
-    left: 3.5%;
     font-family: 'DM Sans';
     color: rgb(255, 255, 255);
     font-weight: 500;
@@ -556,5 +579,99 @@ main {
     font-weight: 200;
     font-size: 17px;
 }
+
+/* Large desktops and laptops */ 
+@media (min-width: 1200px) { 
+} 
+ 
+/* Landscape tablets and medium desktops */ 
+@media (min-width: 992px) and (max-width: 1199px) { 
+ 
+
+} 
+ 
+/* Portrait tablets and small desktops */ 
+@media (min-width: 768px) and (max-width: 991px) { 
+ 
+
+} 
+ 
+/* Landscape phones and portrait tablets */ 
+@media (max-width: 767px) { 
+ 
+
+} 
+ 
+/* Portrait phones and smaller */ 
+@media (max-width: 480px) { 
+ 
+    .fullback {
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 2.5px;
+        width: 100vw;
+        height: 192vh;
+        background-color: rgba(0, 0, 0);
+        z-index: 2;
+    }
+
+    .linechart-card {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 1fr;
+        height: 1fr;
+    }
+
+    .line-label {
+        position: relative;
+        top: 2%;
+        left: 3.5%;
+        font-family: 'DM Sans';
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+        font-size: 28px;
+    }
+
+    .treemap-card {
+        grid-column: 1;
+        grid-row: 3 / 5;
+        width: 1fr;
+        height: 1fr;
+    }
+    
+    .treemap-container {
+        height: fit-content;
+        width: 100%;
+    }
+
+    .treemap-label {
+        display: block;
+        position: relative;
+        width: fit-content;
+        top: 2%;
+        left: 4%;
+        font-family: 'DM Sans';
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+        font-size: 28px;
+    }
+
+    .graph-options {
+        grid-column: 1; 
+        grid-row: 5;
+        width: 1fr;
+        height: 1fr;
+    }
+
+    .summary-card {
+        grid-column: 1;
+        grid-row: 5;
+        width: 1fr;
+        height: 1fr;
+    }
+
+} 
 
 </style>

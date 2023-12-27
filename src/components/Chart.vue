@@ -46,8 +46,9 @@ export default {
           },
           layout: {
             padding: {
-              left: 10,
-              right: 10,
+              top: 15,
+              bottom: 20,
+              left: 5
             },
           },
         },

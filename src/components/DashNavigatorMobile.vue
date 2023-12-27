@@ -4,15 +4,43 @@
 			<img class="logo-dash-mobile" src="/src/assets/logo_75px.png" alt="logo" />
 			<h1 class="headname-dash-mobile">Client Name</h1>
 		</div>
-            <button id="mobile-box-center-dash-mobile">
+            <button @click="showSummaryPopup" id="mobile-box-center-dash-mobile">
                 <span class="mobile-bar-top-bottom-dash-mobile"></span>
                 <span class="mobile-bar-middle-dash-mobile"></span>
                 <span class="mobile-bar-top-bottom-dash-mobile"></span>
             </button>
 	</nav>
+	<SummaryPopUp :is-visible="isSummaryPopupVisible" @close="hideSummaryPopup" />
 </template>
 
 <script>
+
+import SummaryPopUp from './SummaryPopUp.vue';
+
+export default {
+
+	components: {
+		SummaryPopUp
+	},
+
+	data() {
+		return {
+			isSummaryPopupVisible: false,
+		}
+	},
+
+	methods: {
+
+		showSummaryPopup() {
+			this.isSummaryPopupVisible = true;
+		},
+
+		hideSummaryPopup() {
+			this.isSummaryPopupVisible = false;
+		},
+
+	}
+}
 
 </script>
 

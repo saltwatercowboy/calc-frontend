@@ -1,7 +1,5 @@
 <template>
-	<div class="treemap-container">
-    <canvas id="treemap-chart"></canvas>
-  </div>
+  <canvas id="treemap-chart"></canvas>
 </template>
   
 <script>
@@ -32,10 +30,7 @@ export default {
         },
         layout: {
           padding: {
-            left: 35,
-            right: 10,
-            top: 10,
-            bottom: 10
+            top: 15,
           }
         },
       }
@@ -59,4 +54,5 @@ canvas {
   height: 90%;
   width: 100%;
 }
+
 </style>
