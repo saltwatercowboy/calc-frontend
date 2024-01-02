@@ -7,10 +7,10 @@
     </div>
     <div class="nav-links-dash">
         <span>
-            <a ref="navproducts" class="navitems-dash" href="#dashboard">Dashboard</a>
+            <button ref="navproducts" @click="hideEntry" class="navabout-dash-placeholder-link" href="#dashboard">Dashboard</button>
         </span>
         <span>        
-            <a ref="navabout-dash" class="navitems-dash" href="#entry">Add Emissions</a>
+            <button ref="navabout-dash" @click="showEntry" class="navabout-dash-placeholder-link" href="#entry">Add Emissions</button>
         </span>
         <span>
             <a ref="navabout-dash" class="navitems-dash" href="#generator">Generate Report</a>
@@ -27,6 +27,27 @@
 
 <script>
 
+export default {
+    name: "DashNavigator",
+
+    emits: ['update-fullback'],
+
+    data() {
+        return {
+            selectedYear: 'All Time',
+            years: ['All Time', 2021, 2022, 2023],
+        };
+    },
+
+    methods: {
+        showEntry() {
+            this.$emit('show-entry');
+        },
+        hideEntry() {
+            this.$emit('hide-entry');
+        }
+    },
+}
 </script>
 
 <style>
@@ -96,6 +117,19 @@ div.nav-links-dash span:last-child {
 	font-size: 1.1em;
 	font-family: 'DM Sans';
 	color: rgb(255, 255, 255);
+}
+
+.navabout-dash-placeholder-link {
+    text-decoration: none;
+	min-height: auto;
+	text-align: center;
+	font-size: 1.1em;
+	font-family: 'DM Sans';
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
 }
 
 #login-nav-dash {

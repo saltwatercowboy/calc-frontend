@@ -46,11 +46,26 @@ export default {
           },
           layout: {
             padding: {
-              top: 15,
+              top: 25,
               bottom: 20,
               left: 5
             },
           },
+          chart: {
+            color: 'white'
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: '#ccc'
+              }
+            },
+            y: {
+              ticks: {
+                color: '#ccc'
+              }
+            },
+          }
         },
       });
     },

@@ -10,7 +10,7 @@
                 <span class="mobile-bar-top-bottom-dash-mobile"></span>
             </button>
 	</nav>
-	<SummaryPopUp :is-visible="isSummaryPopupVisible" @close="hideSummaryPopup" />
+	<SummaryPopUp :is-visible="isSummaryPopupVisible" @close="hideSummaryPopup" :computedProp="computedData"/>
 </template>
 
 <script>
@@ -21,6 +21,13 @@ export default {
 
 	components: {
 		SummaryPopUp
+	},
+ 
+	props: {
+		computedData: {
+			type: Array,
+			required: true
+		}
 	},
 
 	data() {
@@ -89,9 +96,9 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     position: absolute;
-    right: 5%;
+    left: 32.5%;
     height: 100%;
-    width: 25%;
+    width: 30%;
     position: relative;
 	padding-left: 15%;
 	background-color: rgba(0, 0, 0, 0);

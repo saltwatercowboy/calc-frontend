@@ -5,8 +5,8 @@
             <div id="underline-green-pop"></div>
         </span>
         <div class="summary-list-pop">
-            <span class="summary-sublabel-pop">Kilogrammes CO2 Emitted</span>
-            <div class="summary-single-pop" v-for="summary in datasetSummaries" :key="summary.label">
+            <div class="summary-sublabel-pop">Kilogrammes CO2 Emitted</div>
+            <div class="summary-single-pop" v-for="summary in computedProp" :key="summary.label">
                 <span class="summary-text-pop">{{ summary.label }}: {{ summary.sum }} kgCO2e ({{ summary.year }})</span>
             </div>
         </div>
@@ -22,6 +22,11 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+
+        computedProp: {
+            type: Array,
+            required: true
+        }
         
   	},
 
@@ -58,21 +63,22 @@ export default {
     min-width: 100%;
     height: 100vh;
     background-color: rgb(255, 252, 242);
-    z-index: 10;
+    z-index: 4;
     opacity: 50%;
 }
 
 .summary-list-pop {
-    height: 50%;
+    padding-top: 5%;
+    height: fit-content;
     position: relative;
     overflow: scroll;
+    justify-content: space-between;
 }
 
 .summary-single-pop {
     position: relative;
     padding-top: 5%;
     padding-left: 5%;
-    justify-content: space-between;
 }
 
 .summary-label-pop {
@@ -85,24 +91,25 @@ export default {
     font-size: 34px;
     left: 6%;
     background-color: rgb(255, 252, 242);
+    z-index: 2;
 }
 
 .summary-sublabel-pop {
     position: relative;
-    top: 10%;
     font-family: 'DM Sans';
     color: rgb(0, 0, 0);
     font-weight: 600;
-    font-size: 18px;
-    padding: 10%;
-
+    font-size: 24px;
+    padding-top: 5%;
+    padding-left: 5%;
 }
 
 .summary-text-pop {
     font-family: 'DM Sans';
     color: rgb(0, 0, 0);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
+    padding-left: 5%;
 }
 
 .close-summary {

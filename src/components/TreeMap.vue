@@ -31,6 +31,7 @@ export default {
         layout: {
           padding: {
             top: 15,
+            right: 1
           }
         },
       }
@@ -46,12 +47,6 @@ export default {
 canvas {
   position: absolute;
   height: 100%; 
-  width: 100%;
-}
-
-.treemap-container {
-  position: relative;
-  height: 90%;
   width: 100%;
 }
 

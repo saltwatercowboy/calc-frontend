@@ -1,8 +1,8 @@
 <template>
     <meta name="viewport" content="width=device-width">
     <main>
-        <component v-if="isScreenSmall" :is="smallBar"></component>
-        <component v-else :is="largeBar"></component>    
+        <component v-if="isScreenSmall" :is="smallBar" :computedData="datasetSummaries"></component>
+        <component v-else :is="largeBar" @show-entry="showEntry" @hide-entry="hideEntry"></component>    
         <div class="fullback">
             <div class="treemap-card">
                 <span class="treemap-label">{{ treeName }}
@@ -32,6 +32,7 @@
                     <div class="target-single">
                         <span class="target-text">[Target 2 Name] Cato ferrata</span>
                     </div>
+                    <button @click="showNotification">Example Tip</button>
                 </div>
             </div>
             <div class="linechart-card">
@@ -50,10 +51,12 @@
 
             </div>
         </div>
+        <TabularEntry :displayEntry="isEntryVisible" @close="close-entry"/>
     </main>
 </template>
 
 <script>
+import { useToast, POSITION } from "vue-toastification";
 
 import DashNavigator from './DashNavigator.vue'
 import DashNavigatorMobile from './DashNavigatorMobile.vue'
@@ -63,6 +66,7 @@ import DropDownType from './DropDownType.vue'
 import DropDownScope from './DropDownScope.vue'
 import DropDownYear from './DropDownYear.vue'
 import DropDownUnit from './DropDownUnit.vue'
+import TabularEntry from './TabularEntry.vue'
 import SummaryPopUp from './SummaryPopUp.vue'
 
 export default {
@@ -78,10 +82,14 @@ export default {
         DropDownScope,
         DropDownYear,
         DropDownUnit,
+        TabularEntry,
         SummaryPopUp
     },
 
-    props: ['datasetSummaries'],
+    setup() {
+        const toast = useToast();
+        return { toast }
+    },
 
     data() {
 
@@ -91,6 +99,8 @@ export default {
             largeBar: 'DashNavigator',
 
             isSummaryPopupVisible: false,
+
+            isEntryVisible: false,
 
             screenWidth: window.innerWidth,
 
@@ -214,7 +224,9 @@ export default {
                             { category: 'Asset 2', Emitted: 1658, color: 'rgb(255, 255, 255)' }, 
                             { category: 'Asset 3', Emitted: 1106, color: 'rgb(255, 255, 255)' }, 
                         ],
-                        
+                        borderWidth: .5,
+                        borderColor: 'rgb(23, 32, 41)',
+                        borderRadius: 0,
                         label: 'My treemap dataset',
                         labels: {
                             display: true,
@@ -226,7 +238,7 @@ export default {
                         },
                         groups: ['category'],
                         key: 'Emitted',
-                        backgroundColor: 'rgb(0, 140, 141)'
+                        backgroundColor: '#9F2321'
 
                     }
                 ],
@@ -269,9 +281,17 @@ export default {
         selectedType(newType) {
             this.updateFilteredData();
         },
+
     },
 
     methods: {
+
+        showNotification() {
+            this.toast.info("A similar company reduced their {yearly/quarterly/monthly} emissions profile for {Asset n} by {X%} using {another form of transportation Y / a different material Z}. Click for more information.", 
+            { position: POSITION.BOTTOM_RIGHT,
+              timeout: 12000,
+            });
+        },
 
         showSummaryPopup() {
 			this.isSummaryPopupVisible = true;
@@ -281,19 +301,27 @@ export default {
       		this.isSummaryPopupVisible = false;
     	},
 
+        showEntry() {
+			this.isEntryVisible = true;
+		},
+
+        hideEntry() {
+            this.isEntryVisible = false;
+        },
+
         updateScreenWidth() {
             this.screenWidth = window.innerWidth;
         },
 
         updateSelectedYear(newYear) {
             this.selectedYear = newYear;
-            this.updateFilteredData(); // Add this to trigger data update when year changes
+            this.updateFilteredData();
             console.log('Selected Year:', this.selectedYear);
         },
 
         updateSelectedType(newType) {
             this.selectedType = newType;
-            this.updateFilteredData(); // Add this to trigger data update when type changes
+            this.updateFilteredData(); 
             console.log('Selected Type:', this.selectedType);
         },
 
@@ -401,6 +429,17 @@ main {
     grid-gap: 2.5px;
     width: 100vw;
     height: 94vh;
+    background-color: rgb(23, 32, 41);
+}
+
+.fullback-entry {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 2.5px;
+    width: 100vw;
+    height: 94vh;
     background-color: rgba(0, 0, 0);
 }
 
@@ -469,12 +508,12 @@ main {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(23, 32, 41);
     font-family: 'DM Sans';
 }
 
 .treemap-container {
-    height: 100%;
+    height: 90%;
     width: 100%;
 }
 
@@ -492,7 +531,7 @@ main {
 
 .graph-options {
     display: block;
-    grid-column: 8 / 10;
+    grid-column: 8 / 11;
     grid-row: 2;
     position: relative;
     font-family: 'DM Sans';
@@ -519,7 +558,7 @@ main {
     grid-row: 1;
     width: 100%;
     height: 90%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(23, 32, 41);
     border-radius: 6px;
 }
 
@@ -535,7 +574,7 @@ main {
 .line-label {
     position: relative;
     left: 0.5%;
-    top: 2%;
+    top: 5%;
     font-family: 'DM Sans';
     color: rgb(255, 255, 255);
     font-weight: 500;
