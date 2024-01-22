@@ -1,58 +1,57 @@
 <template>
-    <meta name="viewport" content="width=device-width">
-    <main>
-        <component v-if="isScreenSmall" :is="smallBar" :computedData="datasetSummaries"></component>
-        <component v-else :is="largeBar" @show-entry="showEntry" @hide-entry="hideEntry"></component>    
-        <div class="fullback">
-            <div class="treemap-card">
-                <span class="treemap-label">{{ treeName }}
-                </span>
-                <div id="treemap-container">
-                    <TreeMap :type="treemap" :data="treemapData" />
-                </div>
-            </div>
-            <div class="summary-card">
-                <span class="summary-label">Emissions Summary
-                    <div id="underline-green"></div>
-                </span>
-                <div class="summary-list">
-                    <span class="summary-sublabel">Kilogrammes CO2 Emitted</span>
-                    <div class="summary-single" v-for="summary in datasetSummaries" :key="summary.label">
-                        <span class="summary-text">{{ summary.label }}: {{ summary.sum }} kgCO2e ({{ summary.year }})</span>
+    <html>
+        <meta name="viewport" content="width=device-width">
+        <main>
+            <component v-if="isScreenSmall" :is="smallBar" :computedData="datasetSummaries"></component>
+            <component v-else :is="largeBar" @show-entry="showEntry" @hide-entry="hideEntry"></component>    
+            <div class="fullback">
+                <div class="treemap-card">
+                    <span class="treemap-label">{{ treeName }}
+                    </span>
+                    <div id="treemap-container">
+                        <TreeMap :type="treemap" :data="treemapData" />
                     </div>
                 </div>
-                <span class="targets-label">
-                    Your Targets
-                    <div id="underline-green"></div>
-                </span>
-                <div class="targets-list">
-                    <div class="target-single">
-                        <span class="target-text">[Target 1 Name] Monthly Emissions &lt;=133 kgCO2e</span>
+                <div class="summary-card">
+                    <div class="summary-list">
+                        <div class="summary-sublabel">Kilogrammes CO2 Emitted</div>
+                        <div class="summary-single" v-for="summary in datasetSummaries" :key="summary.label">
+                            <span class="summary-text">{{ summary.label }}: {{ summary.sum }} kgCO2e ({{ summary.year }})</span>
+                        </div>
                     </div>
-                    <div class="target-single">
-                        <span class="target-text">[Target 2 Name] Cato ferrata</span>
+                    <div class="targets-label">
+                        Your Targets
+                        <div id="underline-green"></div>
                     </div>
-                    <button @click="showNotification">Example Tip</button>
+                    <div class="targets-list">
+                        <div class="target-single">
+                            <span class="target-text">[Target 1 Name] Monthly Emissions &lt;=133 kgCO2e</span>
+                        </div>
+                        <div class="target-single">
+                            <span class="target-text">[Target 2 Name] Cato ferrata</span>
+                        </div>
+                        <button @click="showNotification">Example Tip</button>
+                    </div>
                 </div>
-            </div>
-            <div class="linechart-card">
-                <span class="line-label">{{ selectedYear }} {{ lineName }} {{ selectedType }} (kgCO2e)
-                </span>
-                <div class="linechart-container">
-                    <Chart :type="line" :data="filteredLineData" />
+                <div class="linechart-card">
+                    <span class="line-label">{{ selectedYear }} {{ lineName }} {{ selectedType }} (kgCO2e)
+                    </span>
+                    <div class="linechart-container">
+                        <Chart :type="line" :data="filteredLineData" />
+                    </div>
                 </div>
-            </div>
-            <div class="graph-options">
-                <span class="graph-options-label">Options</span>
-                <DropDownScope />
-                <DropDownType @update-type="updateSelectedType"/>
-                <DropDownYear @update-year="updateSelectedYear"/>
-                <DropDownUnit />
+                <div class="graph-options">
+                    <span class="graph-options-label">Options</span>
+                    <DropDownScope />
+                    <DropDownType @update-type="updateSelectedType"/>
+                    <DropDownYear @update-year="updateSelectedYear"/>
+                    <DropDownUnit />
 
+                </div>
             </div>
-        </div>
-        <TabularEntry :displayEntry="isEntryVisible" @close="close-entry"/>
-    </main>
+            <TabularEntry :displayEntry="isEntryVisible" @close="close-entry"/>
+        </main>
+    </html>
 </template>
 
 <script>
@@ -223,9 +222,14 @@ export default {
                             { category: 'Asset 1', Emitted: 1257, color: 'rgb(255, 255, 255)' }, 
                             { category: 'Asset 2', Emitted: 1658, color: 'rgb(255, 255, 255)' }, 
                             { category: 'Asset 3', Emitted: 1106, color: 'rgb(255, 255, 255)' }, 
+                            { category: 'Asset 4', Emitted: 502, color: 'rgb(255, 255, 255)' }, 
+                            { category: 'Asset 5', Emitted: 117, color: 'rgb(255, 255, 255)' }, 
+                            { category: 'Asset 6', Emitted: 55, color: 'rgb(255, 255, 255)' }, 
+                            { category: 'Asset 7', Emitted: 555, color: 'rgb(255, 255, 255)' }, 
                         ],
+                        
                         borderWidth: .5,
-                        borderColor: 'rgb(23, 32, 41)',
+                        borderColor: '#343837',
                         borderRadius: 0,
                         label: 'My treemap dataset',
                         labels: {
@@ -238,7 +242,7 @@ export default {
                         },
                         groups: ['category'],
                         key: 'Emitted',
-                        backgroundColor: '#9F2321'
+                        backgroundColor: '#03719C'
 
                     }
                 ],
@@ -379,6 +383,7 @@ export default {
 
 html {
     scroll-behavior: smooth;
+    max-height: 100vh;
 }
 
 main {
@@ -429,7 +434,7 @@ main {
     grid-gap: 2.5px;
     width: 100vw;
     height: 94vh;
-    background-color: rgb(23, 32, 41);
+    background-color: #343837;
 }
 
 .fullback-entry {
@@ -451,32 +456,41 @@ main {
     width: 100%;
     min-width: 100%;
     height: 98.9%;
-    background-color: rgb(255, 252, 242);
-    padding-right: 3%;
+    background-color: rgb(238, 238, 238);
 }
 
 .summary-list {
     height: 50%;
     position: relative;
-    padding: 5%;
     overflow: scroll;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    border: 5px solid rgb(255, 252, 242);
+    border-radius: 8px;
+    overflow: scroll; 
 }
 
 .summary-single {
     position: relative;
-    padding-top: 5%;
-    padding-left: 5%;
     justify-content: space-between;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.summary-label-container {
+    padding-bottom: 2%;
 }
 
 .summary-label {
     position: relative;
-    top: 2%;
+    top: 4%;
     left: 2%;
     font-family: 'DM Sans';
     color: rgb(0, 0, 0);
-    font-weight: 600;
-    font-size: 34px;
+    font-weight: 500;
+    font-size: 28px;
     left: 6%;
     background-color: rgb(255, 252, 242);
     z-index: 3;
@@ -486,35 +500,37 @@ main {
     position: relative;
     top: 2%;
     font-family: 'DM Sans';
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: 600;
     font-size: 18px;
-    padding: 5%;
-    margin-bottom: 50px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .summary-text {
     font-family: 'DM Sans';
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: 400;
     font-size: 15px;
     padding: 5%;
     padding-top: 50%;
+    position: relative;
+    width: 100%;
 }
 
 .treemap-card {
     grid-column: 1 / 8;
-    grid-row: 2;
+    grid-row: 2 / 3;
     position: relative;
-    width: 100%;
     height: 100%;
-    background-color: rgb(23, 32, 41);
+    background-color: #343837;
     font-family: 'DM Sans';
 }
 
 .treemap-container {
-    height: 90%;
-    width: 100%;
+    position: relative;
+    height: 100%;
 }
 
 .treemap-label {
@@ -536,7 +552,7 @@ main {
     position: relative;
     font-family: 'DM Sans';
     height: 98%;
-    background-color: rgb(255, 252, 242);
+    background-color: rgb(238, 238, 238);
     font-family: 'DM Sans';
     border-radius: 6px;
 }
@@ -558,7 +574,7 @@ main {
     grid-row: 1;
     width: 100%;
     height: 90%;
-    background-color: rgb(23, 32, 41);
+    background-color: #343837;
     border-radius: 6px;
 }
 
@@ -603,6 +619,7 @@ main {
 .targets-label {
     position: relative;
     width: fit-content;
+    padding-top: 15px;
     left: 6%;
     font-family: 'DM Sans';
     color: rgb(0, 0, 0);

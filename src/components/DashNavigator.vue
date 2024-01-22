@@ -59,7 +59,7 @@ export default {
 	top: 0;
 	left: 0;
 	width: 100vw;
-	background-color: rgb(22, 100, 7);
+	background-color: #0F9B8E;
 	z-index: 7;
 	white-space: nowrap;
     border: 1px solid rgb(255, 252, 242);

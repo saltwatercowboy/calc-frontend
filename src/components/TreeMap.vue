@@ -1,5 +1,7 @@
 <template>
-  <canvas id="treemap-chart"></canvas>
+  <div>
+    <canvas id="treemap-chart"></canvas>
+  </div>
 </template>
   
 <script>
@@ -22,7 +24,10 @@ export default {
       data: this.data,
       options: {
         responsive: true,
-        maintainAspectRatio: false,  
+        maintainAspectRatio: false,
+        labels : {
+          overflow: 'fit',
+        }, 
         plugins: {
           legend: {
             display: false
@@ -31,7 +36,7 @@ export default {
         layout: {
           padding: {
             top: 15,
-            right: 1
+            right: 1,
           }
         },
       }
@@ -45,8 +50,8 @@ export default {
 <style>
 
 canvas {
-  position: absolute;
-  height: 100%; 
+  position: relative;
+  height: 300px;
   width: 100%;
 }
 
